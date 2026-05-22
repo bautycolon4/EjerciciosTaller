@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addEventListener corregido</title>
+    <style>
+        button {
+            cursor: pointer;
+            background-color: black;
+            color: blanchedalmond;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: rgb(185, 0, 241);
+            color: white;
+        }
+
+        .titulo {
+            text-align: center;
+            color: darkred;
+            font-weight: bold;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="titulo1">Escuela EETP 614</div>
+
+    <h1 id="mensaje" class="titulo"></h1>
+    <button id="btn_mensaje">Enviar Alerta</button>
+    <button id="btn_limpiar">Limpiar</button>
+    <button id="btn_formato">dar formato al titulo</button>
+    <button id="btn_quitar_formato">quitar formato</button>
+
+    <script>
+        const cajaMensaje = document.getElementById("mensaje");
+        const botonAlerta = document.getElementById("btn_mensaje");
+        const botonLimpiar = document.getElementById("btn_limpiar");
+        const botonFormato = document.getElementById("btn_formato");
+        const titulo1 = document.getElementById("titulo1");
+        const botonquitarformato = document.getElementById("btn_quitar_formato");
+
+        // Evento Alerta
+        botonAlerta.addEventListener("click", function() {
+            alert("¡Es importante no llegar tarde!");
+            cajaMensaje.textContent = "Entendido";
+        });
+
+        // Evento Limpiar - CORREGIDO
+        botonLimpiar.addEventListener("click", function() {
+            cajaMensaje.textContent = ""; 
+        });
+        
+        botonFormato.addEventListener("click", function(){
+            titulo1.classList.add("titulo");
+         })
+
+        botonquitarformato.addEventListener("click", function(){
+            titulo1.classList.remove("titulo");
+        })
+    </script>
+</body>
+</html>
